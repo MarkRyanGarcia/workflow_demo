@@ -12,7 +12,7 @@ def calculate_discount(price, rate=0.10):
     discount regardless of the 'rate' argument.
     """
     # BUG: This calculation uses a fixed 0.01 (1%) instead of the variable 'rate'.
-    discount_amount = price * 0.01  
+    discount_amount = price * rate
     return price - discount_amount
 
 if __name__ == "__main__":
