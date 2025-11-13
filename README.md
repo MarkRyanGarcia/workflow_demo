@@ -14,12 +14,74 @@ To run the local tests and push the code, you must have Python and the necessary
 
 Ensure you have **Python 3** installed on your system (version 3.8 or newer is recommended).
 
+- **Windows**: Download from [python.org](https://www.python.org/downloads/)
+- **macOS**: Install via Homebrew: `brew install python3` or download from [python.org](https://www.python.org/downloads/)
+- **Linux**: Usually pre-installed. If not, use your package manager (e.g., `sudo apt install python3` for Ubuntu/Debian)
+
 ### 2. Install Dependencies
 
 You will need the `pytest` framework to execute the unit tests and `flake8` for code style checks.
 
-Run the following command in your terminal:
-
+#### Windows (Command Prompt or PowerShell)
 ```bash
-# This command installs the necessary Python packages globally
 pip install pytest flake8
+```
+
+#### macOS / Linux
+```bash
+pip3 install pytest flake8
+```
+
+#### Alternative: Using Python Module Installation (All Platforms)
+```bash
+python -m pip install pytest flake8
+```
+or
+```bash
+python3 -m pip install pytest flake8
+```
+
+> **Note**: If you encounter permission errors on macOS/Linux, you can either:
+> - Add `--user` flag: `pip3 install --user pytest flake8`
+> - Use a virtual environment (recommended for project isolation)
+
+2. Open the Pull Request (PR) and Observe
+Go to your repository on GitHub.
+
+Click the "Compare & pull request" banner.
+
+Click "Create pull request."
+
+Go to the Checks tab on the PR page.
+
+Expected Result: The pipeline status will resolve to RED (Failed), proving the bug was caught automatically.
+
+🟢 Exercise 2: Fix the Bug and Pass CI (GREEN Check)
+This exercise shows getting instant, automated approval after fixing the issue.
+
+1. Fix the Code Locally
+Open app.py in your editor and correct the bug in the calculate_discount function:
+
+Python
+
+# Locate this line in app.py:
+# discount_amount = price * 0.01
+
+# Change it to:
+discount_amount = price * rate 
+2. Commit and Push the Fix
+Commit the correction and push to the same open PR branch. This automatically triggers a pipeline rerun.
+
+Bash
+
+# 1. Commit the fix
+git commit -am "Fix: Corrected discount calculation logic."
+
+# 2. Push to update the open PR
+git push
+3. Final Validation
+Return to the PR page on GitHub.
+
+Observe the pipeline rerun.
+
+Expected Result: The status will resolve to GREEN (Success). The code is now validated and ready to merge.
